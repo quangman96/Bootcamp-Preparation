@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> May tinh ver 2</title>
+</head>
+<body>
+    <form name="phepTinh">
+    <p> Máy tính cơ bản</p>
+    <table>
+        <tr>
+            <td colspan="4">
+                <input type="text" name="hienThi" disabled></td>
+        </tr>
+            </td>
+        <tr>
+            <td><input type="button" name="mot" value="1" onclick= "phepTinh.hienThi.value += 1"></td>
+            <td><input type="button" name="hai" value="2" onclick= "phepTinh.hienThi.value += 2"></td>
+            <td><input type="button" name="ba" value="3"  onclick= "phepTinh.hienThi.value += 3"></td>
+            <td><input type="button" class="phepTinh" name="cong" value="+" onclick="phepTinh.hienThi.value += '+'"></td>
+        </tr>
+        <tr>
+            <td><input type="button" name="bon" value="4" onclick= "phepTinh.hienThi.value += 4"></td>
+            <td><input type="button" name="nam" value="5" onclick= "phepTinh.hienThi.value += 5"></td>
+            <td><input type="button" name="sau" value="6" onclick= "phepTinh.hienThi.value += 6"></td>
+            <td><input type="button" class="phepTinh" name="tru" value="-" onclick="phepTinh.hienThi.value += '-'"></td>    
+        </tr>
+        <tr>
+            <td><input type="button" name="bay" value="7" onclick="phepTinh.hienThi.value +=7"></td>
+            <td><input type="button" name="tam" value="8" onclick="phepTinh.hienThi.value +=8"></td>
+            <td><input type="button" name="chin"value="9" onclick="phepTinh.hienThi.value +=9"></td>
+            <td><input type="button" class="phepTinh" name ="nhan" value="x" onclick="phepTinh.hienThi.value += '*'"></td>
+        </tr>
+        <tr>
+            <td><input type="button" class="phepTinh" id="xoa" name="xoa" value="C" onclick="phepTinh.hienThi.value =''"></td>
+            <td><input type="button" name="khong" value="0" onclick="phepTinh.hienThi.value +=0"></td>
+            <td><input type="button" class="phepTinh" name="bang" value="=" onclick="phepTinh.hienThi.value =eval(phepTinh.hienThi.value)"></td>
+            <td><input type="button" class="phepTinh" name="chia" value="/" onclick="phepTinh.hienThi.value += '/'"></td>
+        </tr>                
+    </table>
+    <br>
+    </form>   
+</body>
+</html>
