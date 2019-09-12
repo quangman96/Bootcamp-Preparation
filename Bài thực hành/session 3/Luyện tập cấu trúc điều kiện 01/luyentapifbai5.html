@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Luyen tap if bài 5</title>
+</head>
+<body>
+    <script>
+    let kiemTra = parseInt(prompt("Nhập điểm kiểm tra: "));
+    let giuaKy = parseInt(prompt("Nhập điểm thi giữa kỳ: "));
+    let cuoiKy = parseInt(prompt("Nhập điểm thi cuối kỳ: "));
+    let dtb = (kiemTra + (giuaKy * 2) + (cuoiKy *3))/6;
+   
+   if (dtb>8) {
+        alert ("Học lực giỏi");
+   } else if (dtb>6.5) {
+       alert ("học lực khá");
+   } else if (dtb>5) {
+       alert ("học lực trung bình");
+   } else {
+       alert ("Học lực yếu");
+   }
+    </script>
+</body>
+</html>
