@@ -10,15 +10,15 @@
     <script>
     let a = 0;
     let b = 1;
-    let c;
-    let tong = a + b;
-    for (i=2; i<20; i++) {
+    let c ;
+    let chuoi = a + " " +b;
+    for (let i=2; i<20; i++) {
         c = b+a;
-        tong += c;
+        chuoi += " " + c;
         a = b;
-        b = c;
+        b = c;       
     }
-    document.write(tong);
+    document.write(chuoi);
     </script>
 </body>
 </html>
