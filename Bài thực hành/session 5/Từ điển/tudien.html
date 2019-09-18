@@ -15,8 +15,8 @@
     <input type="text" id="tiengViet" value="" disabled>
 </body>
 <script>
-let tanh = ["one","two","three","four","five","six","seven","eight","nine","ten"];
-let tviet = ["một","hai","ba","bốn","năm","sáu","bảy","tám","chín","mười"];
+let tanh = ["one","two","three","four","five","six","seven","eight","nine","ten","man"];
+let tviet = ["một","hai","ba","bốn","năm","sáu","bảy","tám","chín","mười","depzai"];
 function dich() {
     let count = 0;
     let a = document.getElementById("noiDung").value;
@@ -26,7 +26,7 @@ function dich() {
             break;                
         } count = count +1;
     }
-    if (dem == tanh.length) {
+    if (count == tanh.length) {
             document.getElementById("tiengViet").value = "Không tìm thấy từ này";
         } 
 }
