@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function inputNumber(){
+        let n = 0;
+        do {
+        n +=parseInt(prompt("Nhập n: "));
+        }
+        while (n < 10)
+        return n;
+    }
+
+    function creatArray(n){
+        let array = new Array(n);
+        for (let i=0; i< n; i++) {
+        array[i] = Math.floor(Math.random()*100 +1);
+    }   
+        return array;
+    }
+    
+    function showArray(arr,n){
+        for(let i=0; i<n; i++){
+            document.write(arr[i]+ ", ");
+        }
+    }
+    function isPrime (n){
+        for (let i =2; i< (n-1); i++){
+            if (n%i===0){
+                return false;
+            } 
+        return true;
+        }
+    }
+    function countPrimes(arr,n){
+        let count =0;
+        for(let i=0 ;i<n; i++){
+            if(isPrime(arr[i]))
+            count+=1;
+        }
+        return count;
+    }
+    function main(){
+        let n = inputNumber();
+        let arr = creatArray(n);
+        showArray(arr,n);
+        document.write("<br>" + "có " + countPrimes(arr,n) + " số nguyên tố");
+       
+    }
+    main();
+    </script>
+</body>
+</html>
