@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <table>
+                <tr>
+                    <td><input type="button" value="Tạo Mảng 1" onclick="mang1()"></td>
+                    <td><input type="text" id="mang" style="width: 300px" disabled ></td>
+                </tr>
+                <tr> 
+                    <td><input type="button" value="Tạo Mảng 2" onclick="mang2()"></td>
+                    <td><input type="text" id="check" style="width: 300px" disabled></td>
+                </tr>
+                <tr>
+                    <td><input type="button"  value="Mảng 3 là: " onclick="mang3()"></td>
+                    <td><input type="text"  id="relust" style="width: 300px" disabled></td>
+                </tr>
+            </table>
+    <script>
+    let a = [];
+    a.length = 10;
+    let b = [];
+    b.length = 10;
+    let c = [[a],[b]];
+    let dem = 0;
+        function mang1() {
+            
+            for (let i=0; i< a.length; i++) {
+            txt = Math.floor(Math.random()*10 +1);
+            a[i]= txt;
+    }   document.getElementById("mang").value = a;
+    } 
+        function mang2() {
+            for (let i=0; i< b.length; i++) {
+            txt = Math.floor(Math.random()*10 +1);
+            b[i]= txt;
+    }   document.getElementById("check").value = b;
+    }
+        function mang3() {
+            document.getElementById("relust").value = c;    
+        }
+    </script>
+</body>
+</html>

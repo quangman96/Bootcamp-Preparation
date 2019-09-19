@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+<body>
+        <title>Do you love me</title>
+        <label> DO YOU LOVE ME? </label>
+        <input type="button" name="yes" value="yes" onclick= "th1()"/>
+        <input type="button" id="no" value="NO" onmouseover="th2()" style="position: absolute; left:100px ;top :300px" />   
+</body>
+<script>
+function th1() {
+alert ("I love you too");
+}
+function th2() {
+    let x = Math.floor (Math.random() * window.innerWidth);
+    let y = Math.floor (Math.random() * window.innerHeight);
+    document.getElementById ("no").style.left = x + "px";
+    document.getElementById ("no").style.top = y + "px";
+}
+</script>
+</html>
