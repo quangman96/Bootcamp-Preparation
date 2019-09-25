@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function creatArray(n){
+        let arr = new Array(n);
+        for (let i=0; i< n; i++) {
+        arr[i] = Math.floor(Math.random()*100 +1);
+    }   
+        return arr;
+    }
+    
+    function showArray(arr,n){
+        for(let i=0; i<n; i++){
+            document.write(arr[i]+ "," );
+        } document.write("<br>");
+    }
+    function main(){
+       let  n = 5;
+       let arr = new creatArray(n);
+       showArray(arr,n);
+       document.write("Mảng đảo ngược là: " + arr.reverse());
+    }
+    main();
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body onKeyDown="K=event.keyCode-37">
+    <tt id=F>
+        <script>
+        function R(H){
+            while(D["F" +(S=Math.ceil(Math.random()*399))].innerHTML!=C);I(S,H)}
+            function I(T,H){D["F"+T ].innerHTML=H}
+            function Y(){
+                if(K+1){
+                    P+=[-1,-20,1,20][K];X=D["F"+P].innerHTML;
+                    if( X!=C)
+                    if(X!="*"){
+                        alert("Over");
+                        return
+                        }
+                        else{
+                            M++;R(X)}I(Z[++L]=P,Q);I(Z[L-M],C)} 
+    setTimeout(Y,99)}
+    Q="<font color=red>●</font>",D=document.all,K=-1,M=1,L=0,Z= [],C="□",S="";
+    for(i=0;i<400;i++)
+    S+=(i%20?"":"<br>")+"<span id=F"+i+">"+((i+1)% 20>1&&i>19&&i<379?C:"■")+"</span>";
+    I("",S);R(Q);P=Z[0]=S;R("*");Y();
+    
+    </script>
+    
+</body>
+</html>
