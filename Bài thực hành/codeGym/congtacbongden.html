@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            table, th, td {
+                  border: 1px solid black;
+                }
+                table{
+                  width: 500px;
+                }
+              </style>
+</head>
+    <table>
+        <tr>
+            <th id="lamp">Bóng Đèn</th>
+            <th id="status"></th>
+        </tr>
+    </table>
+    <table>
+        <th>Công tắc</th>
+        <th><button onclick="lamp.On()" style="width: 99%; height: 100%">ON</button>
+        <button onclick="lamp.Off()" style="width: 99%; height: 100%">OFF</button>
+        </th>
+    </table>
+<body onload="display()">
+    <script>
+    function Lamp(name,status) {
+        this.name = name;
+        this.status = status;
+        this.light = function(){
+            if(this.status) {
+                return "Lighting";
+            } else {
+                return "Not lighting";
+            }
+        }
+    }
+    this.On = function() {
+        if (this.status) {
+            alert ("Lamp alreay turn on");
+        } else {
+            this.status = true;
+            display();
+        }
+    }
+    this.Off = function() {
+        if (this.status) {
+            this.status = false;
+            display();
+        } else {
+            alert ("Lamp already turn off");
+        }
+    }
+    let lamp = new Lamp("Bóng đèn",false);
+    function display(){
+        document.getElementById("lamp").innerHTML = lamp.name;
+        document.getElementById("status").innerHTML = lamp.light();
+
+    }
+    
+
+    </script>
+</body>
+</html>

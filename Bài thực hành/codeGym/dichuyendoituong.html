@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="game"></div>
+    <script>
+    function Hero (img,top,left,right,bottom,size) {
+        this.img = img;
+        this.top = top;
+        this.left = left;
+        this.right = right;
+        this.bottom = bottom;
+        this.size = size;
+
+        this.getHero = function() {
+            return '<img width="'+ this.size + '"' +
+      ' height="'+ this.size + '"' +
+      ' src="' + this.img +'"' +
+      ' style="top: '+this.top+'px; right: '+this.right+'px; left: '+
+                    this.left+'px; bottom: '+this.bottom+'px; position:absolute;" />';
+        }
+    
+        this.moveRight = function() {
+            this.left += 50;
+        }
+        this.moveBottom = function() {
+            this.top += 50;
+        }
+    }
+    let hero = new Hero ("oto.png",20,30,20,30,200);
+    function star() {
+        if(hero.left<window.innerWidth-hero.size){
+            hero.moveRight();
+        }
+        if((hero.left>=window.innerWidth-hero.size)||(hero.left<window.innerHeight-hero.size)) {
+            hero.moveBottom();
+        }
+    document.getElementById("game").innerHTML = hero.getHero();
+    setTimeout(star,1000);
+    }    
+    star ();
+    </script>
+</body>
+</html>

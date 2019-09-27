@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+</head>
+<body onload="show()">
+
+  <h2>Adam & Eva:</h2>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th id="adamName"></th>
+      <th id="evaName"></th>
+
+    </tr>
+    <tr>
+      <th>Gender</th>
+      <td id="genderAdam"></td>
+      <td id="genderEva"></td>
+    </tr>
+    <tr>
+      <th>Weight</th>
+      <td id="weightAdam"></td>
+      <td id="weightEva"></td>
+    </tr>
+    <tr>
+      <th>Say</th>
+      <td><input type="text" id="inputTxtAdam" style="width: 100%"></td>
+      <td><input type="text" id="inputTxtEva" style="width: 100%"></td>
+    </tr>
+    <tr>
+      <th>Options</th>
+      <th><button onclick="adam.say()">Say</button><button onclick="adam.eatApple(apple)">Eat</button></th>
+      <th><button onclick="eva.say()">Say</button><button onclick="eva.eatApple(apple)">Eat</button></th>
+    </tr>
+    <tr>
+      <th>Mess</th>
+      <td>
+        <p name="" id="boxAdam" ></p>
+      </td>
+      <td>
+        <p name="" id="boxEva" ></p>
+      </td>
+    </tr>
+  </table>

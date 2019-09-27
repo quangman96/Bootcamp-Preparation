@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	
+	<style>
+    table, th, td {
+	      border: 1px solid black;
+	    }
+	    table{
+	      width: 500px;
+	    }
+  	</style>
+</head>
+<body onload="show()">
+	<table>
+	    <tr>
+	      <th>Name</th>
+	      <th id="lampName1"></th>
+	      <th id="lampName2"></th>
+	    </tr>
+	    <tr>
+	      <th>EL Status</th>
+	      <td id="lampStatus1"></td>
+	      <td id="lampStatus2"></td>
+	    </tr>
+	</table>
+<br><br>
+	<table>
+	    <tr>
+	      <th>Name</th>
+	      <th id="">Switch Button</th>
+	    </tr>
+	    <tr>
+	    	<th>Connect lamp</th>
+	    	<th>
+	    		<select id="conectLamp">
+				    <option value="lamp1" id="lampOption1" ></option>
+				    <option value="lamp2" id="lampOption2" ></option>
+				 </select>
+				 <button onclick="conect()">Conect</button>
+	    	</th>
+	    </tr>
+	    <tr>
+	      <th>Options</th>
+	      <th>
+	      	<button onclick="switchLamp.switchOn()">SwitchON</button> 
+	      	<button onclick="switchLamp.switchOff()">SwitchOFF</button>
+	      </th>
+	    </tr>
+     </table>
+     <script>
+     let EletricLamp = function(name,status){
+	this.name = name;
+	this.status = status;
+
+	this.light = function(){
+		if (this.status) {
+			return "lighting";
+		} 
+		else {
+			return " Not lighting";
+		}
+	};
+
+	this.turnOn = function(){
+		if (this.status) {
+			alert("Lamp is being turned on") ;
+		} else {
+			this.status = true;
+			show();
+		}
+	};
+
+	this.turnOff = function(){
+		if (this.status) {
+			this.status = false;
+			show();
+		}
+		else{
+			alert("Lamp is being turned off") ;
+		}
+	};
+}
+let SwitchButton = function(){
+	this.conetcToLamp = function(_EletricLamp){
+		this.eletricLamp = _EletricLamp ;
+	}
+	this.switchOn = function(){
+		
+		this.eletricLamp.turnOn();
+	}
+	this.switchOff = function(){
+		this.eletricLamp.turnOff();
+	}
+}
+
+let lamp1 = new EletricLamp ("Eletric Lamp 1", false);
+let lamp2 = new EletricLamp ("Eletric Lamp 2", false);
+let switchLamp = new SwitchButton();
+
+function show(){
+	document.getElementById("lampName1").innerHTML = lamp1.name;
+	document.getElementById("lampName2").innerHTML = lamp2.name;
+	document.getElementById("lampOption1").innerHTML = lamp1.name;
+	document.getElementById("lampOption2").innerHTML = lamp2.name;
+	document.getElementById("lampStatus1").innerHTML = lamp1.light();
+	document.getElementById("lampStatus2").innerHTML = lamp2.light();
+}
+function conect(){
+	let con = document.getElementById("conectLamp").value;
+	console.log(con);
+	if (con == "lamp1") {
+		switchLamp.conetcToLamp(lamp1);
+	} else {
+		switchLamp.conetcToLamp(lamp2);
+	}
+}
+     </script>
+</body>
+</html>
