@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vẽ hình chữ nhật</title>
+</head>
+<body>
+    <style>
+    canvas{
+        border: 5px solid teal;
+        background-color: antiquewhite;
+    }  
+    </style>
+    <canvas id="myCanvas" height="500" width="500" style="border: 1px"></canvas>    
+    <script>
+        let ctx = document.getElementById("myCanvas").getContext("2d");
+        class Rectangle{
+            constructor(x,y,width,height,color) {
+                this.x = x;
+                this.y = y;
+                this.width = width;
+                this.height = height;
+                this.color = color;
+            }
+            chuVi(){
+                return (this.width+this.height)*2;
+            }
+            dienTich(){
+                return (this.width*this.height);
+            }
+            draw(){
+                    ctx.beginPath();
+                    ctx.rect(this.x,this.y,this.width,this.height);
+                    ctx.fillStyle = this.color;
+                    ctx.fill();
+                    ctx.stroke();
+                    ctx.closePath();
+            }
+        }
+            function getRandomHex() {
+            return Math.floor(Math.random()*255);
+        }
+        function getRandomColor() {
+            let red = getRandomHex();
+            let green = getRandomHex();
+            let blue = getRandomHex();
+            return "rgb(" + red + "," + blue + "," + green +")";    
+        }
+        
+    
+        let hcn = new Rectangle(10,10,200,200,getRandomColor());
+        hcn.draw();
+    
+    </script>
+</body>
+</html>

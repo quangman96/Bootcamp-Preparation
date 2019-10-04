@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kiểm tra năm nhuận</title>
+</head>
+<body>
+    <h1>Kiểm tra năm nhuận</h1>
+    Nhập năm <input type="text" id="year">
+    <button onclick="check()">Check</button> <br><br>
+    <div id="display"></div>
+    <script>
+    function checkyear(n) {
+        if((n%4===0) && (n%100!== 0))
+        return true;
+        if ((n%100===0) && (n%400===0))
+        return true;
+        return false;  
+    }
+    function check(){
+        let n =document.getElementById("year").value;
+        document.getElementById("display").innerHTML=(checkyear(n)? 
+                                            "Năm "+n+" là năm nhuận":
+                                            "Năm "+n+" không phải là năm nhuận"); 
+    }
+    </script>
+</body>
+</html>

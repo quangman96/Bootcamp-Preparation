@@ -1,0 +1,53 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" style="widows: 400px; height:300px"></canvas>
+    <script>
+            let canvas = document.getElementById("myCanvas");
+            let ctx = canvas.getContext("2d");
+            let Rectangle = function (_x,_y,_width,_height,_color) {
+                this.x = _x;
+                this.y = _y;
+                this.width = _width;
+                this.height = _height;
+                this.color = _color;    
+                this.render = function () {
+                    ctx.beginPath();
+                    ctx.rect(this.x, this.y, this.width, this.height);
+                    ctx.fillStyle = this.color;
+                    ctx.fill();
+                    ctx.closePath();
+                }
+        }
+        let rectangle = new Rectangle(10,10,200,100,"#000000");
+        rectangle.render();
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+    let count = 0;
+do {
+    count++;
+} while (count++ < 10);
+        document.write(count);
+    </script>
+</body>
+</html>
