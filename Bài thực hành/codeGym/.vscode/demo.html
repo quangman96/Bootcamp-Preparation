@@ -1,53 +1,41 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-
-<body>
-    <canvas id="myCanvas" style="widows: 400px; height:300px"></canvas>
-    <script>
-            let canvas = document.getElementById("myCanvas");
-            let ctx = canvas.getContext("2d");
-            let Rectangle = function (_x,_y,_width,_height,_color) {
-                this.x = _x;
-                this.y = _y;
-                this.width = _width;
-                this.height = _height;
-                this.color = _color;    
-                this.render = function () {
-                    ctx.beginPath();
-                    ctx.rect(this.x, this.y, this.width, this.height);
-                    ctx.fillStyle = this.color;
-                    ctx.fill();
-                    ctx.closePath();
-                }
-        }
-        let rectangle = new Rectangle(10,10,200,100,"#000000");
-        rectangle.render();
-    </script>
-</body>
-</html> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Kiểm tra năm nhuận</title>
 </head>
 <body>
+    <h1>Kiểm tra năm nhuận</h1>
+    Nhập năm <input type="number" id="year">
+    <button onclick="check()">Check</button> <br><br>
+    <div id="display"></div>
+
     <script>
+        function isLeapYear(year){
+            // if((year%4===0) && (year%100!==0))
+            // return true;
+            //     if((year%100===0) && (year%400===0))
+            //     return true; 
+            // return false;
+            if((year%4===0) && (year%100!==0)) {
+              return true;
+            } else if((year%100===0) && (year%400===0)) {
+              return true;
+            }
+            return false;
+        }
+
+        function check(){
+            let year = document.getElementById("year").value;
+            document.getElementById("display").innerHTML = (isLeapYear(year)?
+                                                          "Năm "+ year + " là năm nhuận.":
+                                                          "Năm "+ year + " không phải là năm nhuận.");
+        }
     
-    let count = 0;
-do {
-    count++;
-} while (count++ < 10);
-        document.write(count);
+    
     </script>
+    
 </body>
 </html>

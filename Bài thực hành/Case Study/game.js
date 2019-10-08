@@ -4,6 +4,15 @@
     maxWidth = 20;
     minGap = 200;
     maxGap = 500;
+    const dino = new Image();
+    dino.src = "khunglong.png";
+
+    const pipe = new Image();
+    pipe.src="ongnuoc.png";
+
+    const bg = new Image();
+    bg.src = "bg.png";
+
     gap = randGap();
     let myObstacles = [];   
     function starGame(){
@@ -15,7 +24,7 @@
         return false; 
     }
     function jump(){
-        if (player.y==470){
+        if (player.y==420){
         player.speedY=-2;
     }
     }
@@ -32,24 +41,22 @@
     }
     let player ={
         x:20,
-        y:470,
+        y:420,
         speedY:0,
         update:function(){
-            gamearea.context.fillRect(this.x,this.y,30,30);
-            // let image = new Image();
-            // image.src ="<khunglong.png>";
+            gamearea.context.drawImage(dino,this.x,this.y,80,80);
         },
         newPos:function(){
-            if(this.y<280) {
+            if(this.y<240) {
                 this.speedY=2;
             }
             this.y=this.y+this.speedY;
-            if(this.speedY==2 && this.y==470){
+            if(this.speedY==2 && this.y==420){
                 this.speedY =0;
             }
         },
         crashWith:function(obs) {
-            if(this.x+30>obs.x && this.x<obs.x+obs.width &&this.y+30>obs.y){
+            if(this.x+30>obs.x && this.x<obs.x+obs.width &&this.y+80>obs.y){
                 return true;
             }
             return false;
@@ -62,25 +69,20 @@
         this.x=1200;
         this.y=gamearea.canvas.height-this.height;
         this.draw = function(){
-            gamearea.context.fillRect(this.x,this.y,this.width,this.height);
+            gamearea.context.drawImage(pipe,this.x,this.y,this.width,this.height);
         }
     }
 
     let gamearea ={
         canvas:document.getElementById("game"),
         star:function(){
-            // this.canvas.height =600;
-            // this.canvas.width = 1200;
             document.body.insertBefore(this.canvas,document.body.childNodes[0]);
             this.context = this.canvas.getContext("2d");
             this.frame=0;
             this.score=0;
             scoreText.update("Score: 0");
-            // myObstacles.push(new obstacle());
             this.interval = setInterval(this.updateGameArea,5);
             window.addEventListener("keydown",jump);
-            // let image = new Image();
-            // image.src ="<khunglong.png>";
         },
         updateGameArea:function(){
             for(i=0;i<myObstacles.length;i++) {
@@ -111,6 +113,6 @@
         },
         stop:function(){
             clearInterval(this.interval);
-            alert("thua cmnr");
+            alert("you lose");
         }
     }

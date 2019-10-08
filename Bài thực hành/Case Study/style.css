@@ -1,8 +1,14 @@
 canvas{
     border: 10px solid #000000;
-    background-color: burlywood;
+    background-image:url("bg.png");
+    background-repeat: repeat-x;
+    background-size: auto;
 }
+
 body{
+    background-image:url("ok.jpg");
+    background-repeat: repeat-x;
+    background-size: auto;
     text-align: center;
     margin-top: 100px;
 }

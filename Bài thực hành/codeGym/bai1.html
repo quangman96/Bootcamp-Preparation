@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tìm giá trị lớn nhất</title>
+</head>
+
+<body>
+    <script>
+
+        function findMaxScore(arr) {
+            let max = arr[0];
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] > max) {
+                    max = arr[i];
+                }
+            }
+            return max;
+        }
+
+        // let array1 = [10, 5, 2, 8, -1, 6, 8];
+        // let array2 = [2, 4, 0, 5, 1];
+        // let array3 = [8, 6, 2, 6, 1, 1, 4];
+
+        // document.write("Giá trị lớn nhất của mảng " + array1 + " là: " + findMaxScore(array1) + "<br>");
+        // document.write("Giá trị lớn nhất của mảng " + array2 + " là: " + findMaxScore(array2) + "<br>");
+        // document.write("Giá trị lớn nhất của mảng " + array3 + " là: " + findMaxScore(array3) + "<br>");
+      
+        function inputNumber(){
+            let n = 0;
+            do{
+                n = parseInt(prompt("Enter array length: "));   
+            }
+            while(!checkInput(n))
+            return n;
+        }
+        
+        function checkInput(n) {
+            if(n<0) return false;
+            return !Number.isNaN(n);
+            return true;
+        }
+        
+        function creatArray(n) {
+            let array = new Array(n);
+            for (let i=0; i< n; i++) {
+            array[i] = Math.floor(Math.random()*100 +1);
+        }   
+            return array;
+        }
+        function main(){
+        let n = inputNumber();
+        let arr = creatArray(n);
+        document.write("Ta có mảng ngẫu nhiên với độ dài " + n +
+                      " là: " + arr + "<br>" +
+                       "Có giá trị lớn nhất là: "+findMaxScore(arr));
+        maxArray(arr,n);
+        }
+        main();
+    </script>
+</body>
+
+</html>
