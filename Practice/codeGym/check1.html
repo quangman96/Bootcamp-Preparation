@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Số Nguyên Tố</title>
+</head>
+<body>
+    <script>
+    function inputNumber(){
+        let n = 0;
+        do{
+            n = parseInt(prompt("Enter number: "));
+        }
+        while(!checkInput(n))
+        return n;
+    }    
+    function checkInput(n) {
+        if(n<0) return false;
+        return !Number.isNaN(n);
+        return true;
+    }
+inputNumber();
+    </script>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <STYLE>.bullet {
+            FONT-WEIGHT: bold; FONT-SIZE: 10px; FONT-FAMILY: verdana; POSITION: absolute
+        }
+        
+        </STYLE>
+</head>
+        <BODY onkeydown=chkKeyDown() onkeyup=blnPressed=false; onload="document.all['numBullets'].innerText = intBullets;">
+                <div style="position: relative; float: right; width: 80%;">
+                <SPAN id=bullet style="LEFT: 10px; POSITION: absolute; TOP: 10px"></SPAN><SPAN 
+                id=bullet style="LEFT: 10px; POSITION: absolute; TOP: 10px"></SPAN><SPAN 
+                id=target style="LEFT: 10px; POSITION: absolute; TOP: 10px"></SPAN><SPAN 
+                id=target style="LEFT: 10px; POSITION: absolute; TOP: 10px"></SPAN>
+                <DIV id=main 
+                style="BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; OVERFLOW-Y: hidden; LEFT: 20px; BORDER-LEFT: black 1px solid; WIDTH: 200px; BORDER-BOTTOM: black 1px solid; POSITION: absolute; TOP: 20px; HEIGHT: 300px; BACKGROUND-COLOR: white">
+                <DIV id=imgObj 
+                style="FONT-WEIGHT: bold; FONT-SIZE: 10px; LEFT: 100px; FONT-FAMILY: verdana; POSITION: absolute; TOP: 270px" 
+                align=center>|<BR>[_] </DIV>
+                <HR 
+                style="LEFT: 0px; WIDTH: 200px; COLOR: black; POSITION: absolute; TOP: 296px">
+                </DIV>
+                <DIV id=GOMsg 
+                style="BORDER-RIGHT: black 1px solid; PADDING-RIGHT: 6px; BORDER-TOP: black 1px solid; DISPLAY: none; PADDING-LEFT: 6px; FONT-WEIGHT: bold; FONT-SIZE: 25px; LEFT: 70px; PADDING-BOTTOM: 6px; BORDER-LEFT: black 1px solid; WIDTH: 100px; COLOR: red; PADDING-TOP: 6px; BORDER-BOTTOM: black 1px solid; FONT-FAMILY: Comic Sans MS; POSITION: absolute; TOP: 140px; HEIGHT: 70px; BACKGROUND-COLOR: yellow">Game<BR>&nbsp;&nbsp;&nbsp;Over 
+                </DIV>
+                <DIV 
+                style="BORDER-RIGHT: black 4px solid; BORDER-TOP: gray 4px solid; FONT-SIZE: 12px; LEFT: 20px; BORDER-LEFT: gray 4px solid; WIDTH: 200px; BORDER-BOTTOM: black 4px solid; FONT-FAMILY: verdana; POSITION: absolute; TOP: 325px; HEIGHT: 68px">
+                <TABLE borderColor=orange cellSpacing=0 cellPadding=4 width="100%" border=1>
+                
+                  <TBODY>
+                  <TR style="FONT-WEIGHT: bold; COLOR: lime" bgColor=black>
+                    <TD width="30%">Score : </TD>
+                    <TD id=scr align=right>0 </TD></TR>
+                  <TR style="FONT-WEIGHT: bold; COLOR: lime" bgColor=black>
+                    <TD>Life : </TD>
+                    <TD id=life align=right>3 </TD></TR>
+                
+                  <TR style="FONT-WEIGHT: bold; COLOR: lime" bgColor=black>
+                    <TD>Bullets : </TD>
+                    <TD id=numBullets align=right>&nbsp; </TD></TR></TBODY></TABLE></DIV>
+                <DIV 
+                style="FONT-SIZE: 12px; LEFT: 20px; WIDTH: 200px; FONT-FAMILY: verdana; POSITION: absolute; TOP: 420px; TEXT-ALIGN: center">Fire: 
+                &lt;&lt;Space_Bar&gt;&gt; <BR>Movement: [Left &lt;--] [Right --&gt;]<br><a href="http://www.javascriptbank.com">www.javascriptbank.com</a></DIV>
+                </DIV>
+                
+    <SCRIPT>
+        var blnPressed = false;
+        var intClrIntId = 0;
+        var intClrIntIdTarget = 0;
+        var intLife = 3;
+        var intHits=0;
+        var objScore,objLife,objNumBull;
+        var intBullets=200;
+        var intTargets=30;
+        var blnGameOver=false;
+        
+        setTimeout("objScore = document.all['scr'];objLife= document.all['life'];objNumBull=document.all['numBullets'];",1000);
+    
+        intClrIntId = setInterval('moveBullets()',30);
+        intClrIntIdTarget = setInterval('displayTarget()',900);
+    
+        function moveObjRight()
+        {
+            var obj = document.all['imgObj'];
+    
+            if(blnPressed && (obj.style.pixelLeft+6) < 175)
+            {
+                obj.style.left = obj.style.pixelLeft+6 ;			
+            }
+        }
+    
+        function moveObjLeft()
+        {
+            var obj = document.all['imgObj'];
+    
+            if(blnPressed && (obj.style.pixelLeft-6) > 0)
+            {
+                obj.style.left = obj.style.pixelLeft-6 ;			
+            }
+        }
+        
+        function chkKeyDown()
+        {
+            var intEvent=0;
+    
+            if(blnGameOver)
+            return;
+    
+            intEvent = event.keyCode;
+            
+            switch(intEvent)
+            {
+                //Left arrow
+                case 37:
+                    blnPressed=true;
+                    moveObjLeft();
+                    break;			
+                //Right arrow
+                case 39:
+                    blnPressed=true;
+                    moveObjRight()
+                    break;			
+                //Spacebar
+                case 32:
+                    fire();
+                    break;
+                default:
+                    break;			
+            }
+        }
+    
+        function fire()
+        {
+            if(intBullets != 0)
+            {
+                var objBullet = new createObj("*",'bullet');
+                var objGun = document.all['imgObj'];
+    
+                objBullet.style.left=objGun.style.pixelLeft+3;
+                objBullet.style.color="blue";
+                objBullet.style.top=objGun.style.pixelTop-10;
+                intBullets--;
+                objNumBull.innerText = intBullets;
+            }
+        }
+    
+        function moveBullets()
+        {
+            var objBullets = document.all['bullet'];
+            var objTargets = document.all['target'];
+    
+            for(var i=2; i<objBullets.length;i++)
+            {
+                if(objBullets[i].style.pixelTop > -10)
+                {
+                    objBullets[i].style.top = objBullets[i].style.pixelTop - 15; 
+                    checkBulletCollision(objBullets[i]);
+                }
+                else
+                {
+                    objBullets[i].style.display='none';
+                }
+            }
+    
+            for(var i=2; i<objTargets.length;i++)
+            {
+                if(objTargets[i].style.pixelTop < 300)
+                {
+                    objTargets[i].style.top = objTargets[i].style.pixelTop + 4; 
+                    
+                    if(objTargets[i].innerHTML != 'X')
+                    checkGunCollision(objTargets[i]);
+                }
+                else
+                {
+                    objTargets[i].style.display='none';
+                }
+            }		
+        }
+    
+        function checkBulletCollision(objBullet)
+        {
+            var objTargets = document.all['target'];
+            var intX=0,intY=0;
+    
+            for(var i=2; i<objTargets.length;i++)
+            {
+                intX = Math.abs(objBullet.style.pixelLeft - objTargets[i].style.pixelLeft);
+                intY = Math.abs(objBullet.style.pixelTop - objTargets[i].style.pixelTop);
+    
+                if(objTargets[i].innerHTML == 'X')
+                {
+                    objTargets[i].style.display='none';
+                }
+    
+                if((intX <= 10) && (intY<=10) && (objBullet.style.display != 'none') && (objTargets[i].style.display != 'none'))
+                {
+                    objTargets[i].innerHTML='X';
+                    objBullet.style.display='none';
+                    intHits++;
+                    objScore.innerText=intHits*100;
+                }			
+            }		
+        }
+    
+        function checkGunCollision(objTarget)
+        {
+            var objGun = document.all['imgObj'];
+            var intX=0,intY=0;
+    
+            intX = Math.abs(objTarget.style.pixelLeft - objGun.style.pixelLeft);
+            intY = Math.abs(objTarget.style.pixelTop - objGun.style.pixelTop);
+    
+            if((intX <= 12) && (intY<=10))
+            {
+                objTarget.innerHTML='X';
+                objTarget.style.display='none';
+                
+                objGun.style.fontSize = "26";
+                objGun.innerHTML = "X";
+    
+                document.all['main'].style.backgroundColor="orange";
+    
+                setTimeout('document.all[\'main\'].style.backgroundColor="white"',200);
+                
+                clearInterval(intClrIntId);
+                clearInterval(intClrIntIdTarget);
+                
+                intLife--;
+                if(intLife>0)
+                {
+                    objLife.innerText=intLife;
+                    intializeGame();
+                }
+                else
+                {
+                    objLife.innerText=0;
+                    gameOver();
+                }
+            }
+    
+            if(intBullets == 0)
+            {
+                gameOver();
+            }
+        }
+    
+        function intializeGame()
+        {
+            var objMain = document.all['main'];
+            var strMain='';
+    
+            strMain='<div align="center" id="imgObj" style="position:absolute;left:100px;top:270px;font-family:verdana;font-size:10px;font-weight:bold">|<br>[_]</div><hr style="position:absolute;left:0px;top:296px;color:black;width:200px;">';
+    
+            objMain.innerHTML = strMain;
+            intClrIntId = setInterval('moveBullets()',30);
+            intClrIntIdTarget = setInterval('displayTarget()',1500);
+        }
+    
+        function createObj(str,name)
+        {
+            var objSpan = document.createElement('SPAN');
+            var objText = document.createTextNode(str);
+            objSpan.appendChild(objText);
+            objSpan.className = 'bullet';
+            objSpan.id=name;
+            document.all['main'].appendChild(objSpan);
+            return(objSpan);
+        }
+    
+        function generateTarget()
+        {
+            var objTarget = new createObj("[_]",'target');
+            var fltRandom;
+    
+            objTarget.style.top=0;
+            objTarget.style.color="red";
+            fltRandom = Math.random();
+            objTarget.style.left = (fltRandom*1000)/5.5;
+        }
+    
+        function printMsg(msg)
+        {
+            var objMsg=document.all['msg'];
+    
+            objMsg.innerHTML = objMsg.innerHTML + '<BR>' + msg;
+        }
+    
+        function displayTarget()
+        {
+            var fltRandom;
+            
+            fltRandom = Math.random();
+    
+            setTimeout('generateTarget();',fltRandom*1000);
+        }
+    
+        function gameOver()
+        {
+            document.all['GOMsg'].style.display="block";
+            clearInterval(intClrIntId);
+            clearInterval(intClrIntIdTarget);
+            blnGameOver=true;
+        }
+    </SCRIPT>
+</body>
+</html>

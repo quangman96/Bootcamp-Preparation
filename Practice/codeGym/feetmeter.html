@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<input type="number" id="number">
+<input type="button" value="meters sang feet" onclick="meters()">
+<input type="button" value="feet sang meters" onclick="feet()"> <br>
+<span id ="display"></span>
+<body>
+    <script>             
+        function meters(){
+        let n = document.getElementById("number").value;
+        let feet = n* 3.279;
+        document.getElementById("display").innerHTML= feet;
+        }
+        function feet(){
+        let n = document.getElementById("number").value;    
+        let meters = n* 0.305;
+        document.getElementById("display").innerHTML= meters;
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>May tinh don gian</title>
+</head>
+<body>
+    <h1>Bai tap may tinh</h1> 
+    Caculator <br>
+    <input type="number" id="so1">
+    <input type="number" id="so2"> <br>
+    <p id ="ketQua"></p> <br>
+    <input type="submit" onclick="cong()" value= "Addition(+)">
+    <input type="submit" onclick="tru()" value= "Subtraction(-)">
+    <input type="submit" onclick="nhan()" value= "Multiplication(X)">
+    <input type="submit" onclick="chia()" value= "Divition(/)">
+<script>
+    function cong(){
+        let so1 = document.getElementById("so1").value;
+        let so2 = document.getElementById("so2").value;
+        let ketQua =  parseInt(so1) + parseInt(so2);
+        document.getElementById("ketQua").innerHTML = ketQua;
+    }
+    function tru(){
+        let so1 = document.getElementById("so1").value;
+        let so2 = document.getElementById("so2").value;
+        let ketQua = parseInt(so1) - parseInt (so2);
+        document.getElementById("ketQua").innerHTML = ketQua;
+    }
+    function nhan(){
+        let so1 = document.getElementById("so1").value;
+        let so2 = document.getElementById("so2").value;
+        let ketQua = parseInt(so1) * parseInt(so2);
+        document.getElementById("ketQua").innerHTML = ketQua;
+    }
+    function chia(){
+        let so1 = document.getElementById("so1").value;
+        let so2 = document.getElementById("so2").value;
+        let ketQua = parseInt(so1) / parseInt(so2);
+        document.getElementById("ketQua").innerHTML = ketQua;
+    }
+</script>   
+</body>
+</html>

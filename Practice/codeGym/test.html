@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td><input type="button" value="taoMang" onclick="taoMang()"></td>
+            <td><input type="text" id="mang" disabled></td>
+        </tr>
+        <tr> 
+            <td><input type="button" value="kiemTra" onclick="kiemTra()"></td>
+            <td><input type="text" id="check" disabled></td>
+        </tr>
+    </table>
+  <script>
+    let num = 10;
+    let arr =[num];
+    // let arr1 =[num-1];
+
+    function taoMang() {
+      for (let index = 0; index < num; index++) {
+            arr[index] = Math.floor(Math.random()*20);
+        
+      } document.getElementById("mang").value = arr;
+    }
+
+    function kiemTra() {
+      let a = parseInt(prompt("Enter a: "));
+
+      let arr1 = document.getElementById("mang").value;
+      let count = 0;
+        for(let i=0; i<arr1.length;i++) {
+          if(a === arr[i]){
+            for(let j=i; j<arr1.length; j ++){
+              arr1[j]= arr1[j+1];
+            }
+
+          }
+        }
+    document.getElementById("check").value = arr1;
+        
+    }
+  </script>
+</body>
+</html>

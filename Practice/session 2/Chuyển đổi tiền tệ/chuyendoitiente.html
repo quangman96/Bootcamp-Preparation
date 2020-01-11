@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Bài tập chuyển đổi tiền tệ</h1>
+    <form action="nhập số tiền">
+        Amount<br>
+        <input type="number" id="soTien"><br>
+       From Currency<br>
+        <select id="form">
+           <option value="VietNam">VietNam</option>
+           <option value="USD">USD</option>
+       </select><br>
+       To Currency<br>
+       <select id="to">
+       <option value="USD">USD</option>
+       <option value="VietNam">VietNam</option>
+       </select><br>
+       <input type="submit" onclick="chuyendoi()" value="Convert">
+       <p id= "result">
+       </p>
+    </form>
+    <script>
+        function chuyendoi()
+    let soTien = document.getElementById("soTien").value;
+    let from = document.getElementById("form").value;
+    let to = document.getElementById("to").value;
+    let th1 = parseInt(soTien*23000);
+    let th2 =  parseInt(soTien/23000);
+    if ((form = "VietNam")&&(to = "USD")) 
+    document.getElementById("result").innerHTML = "result" + th2 + "USD";
+     
+     else 
+    document.write (+soTien);
+
+    </script>
+</body>
+</html>

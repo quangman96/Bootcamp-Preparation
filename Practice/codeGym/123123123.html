@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+<canvas id="myCanvas"></canvas>
+</body>
+<script>
+    let canvas = document.getElementById('myCanvas');
+    let context = canvas.getContext('2d');
+    let Rectangle = function (positionX, positionY, width, height, color) {
+        this.positionX = positionX;
+        this.positionY = positionY;
+        this.width = width;
+        this.height = height;
+        this.color = color;
+        this.getPositionX = function () {
+            return this.positionX;
+        };
+        this.setPositionX = function () {
+            this.positionX = positionX;
+        };
+        this.getPositionY = function () {
+            return this.positionY;
+        };
+        this.setPositionY = function () {
+            this.positionY = positionY;
+        };
+        this.getWidth = function () {
+            return this.width;
+        };
+        this.getHeight = function () {
+            return this.height;
+        };
+        this.getColor = function () {
+            return this.color;
+        };
+        this.setColor = function () {
+            this.color = color;
+        };
+        this.setWidth = function () {
+            this.width = width;
+        };
+        this.setHeght = function () {
+            this.height = height;
+        };
+        this.render = function () {
+            context.beginPath();
+            context.fillStyle = this.color;
+            context.rect(positionX, positionY, width, height, color);
+            context.fill();
+            context.closePath();
+        }
+    };
+    let rectangle = new Rectangle(10, 10, 200, 100, '#FBAACD');
+    rectangle.render();
+</script>
+</html>

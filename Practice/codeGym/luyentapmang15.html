@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let a = [];
+    let dem;
+    a.length = parseInt(prompt("Nhập số phần tử của mảng: "));
+    for(let i=0; i<a.length; i++) {
+        dem = parseInt(prompt("Nhập vào " + a.length + " phần tử của mảng: "));
+        a[i]= dem;
+    } document.write("Mảng bạn vừa tạo là: " + a + "<br>" );
+    let count = 0;
+    for(let j=0;j<a.length; j++) {
+        if (a[j]<0) {
+            count = count +1;
+        }
+    } document.write("Có " + count +" phần tử là số nguyên âm" );
+    </script>
+</body>
+</html>

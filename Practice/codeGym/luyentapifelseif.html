@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Luyện tập if else if</title>
+</head>
+<body>
+<script>
+    let id = prompt ("Nhập tên đăng nhập", '');
+    if (id == "admin") {
+        let pass = prompt ("Nhập mật khẩu",'');
+            if (pass == "themaster") {
+            alert ("Welcome");
+            } else if (pass == null) {
+            alert ("Đăng nhập bị hủy");
+            } else {
+            alert ("Mật khẩu sai");
+    }
+    } else if (id == "null") {
+        alert ("Đăng nhập bị hủy");
+    } else {
+        alert ("Không quen");
+    }        
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <table>
+                <tr>
+                    <td><input type="button" value="taoMang" onclick="taoMang()"></td>
+                    <td><input type="text" id="mang" disabled></td>
+                </tr>
+                <tr> 
+                    <td><input type="button" value="kiemTra" onclick="kiemTra()"></td>
+                    <td><input type="text" id="check" disabled></td>
+                </tr>
+            </table>
+    <script>
+    let a = [];
+    a.length = 5;
+    let txt;
+    function taoMang() {
+    for (let i=0; i< a.length; i++) {
+        txt = Math.floor(Math.random()*100 +1);
+        a[i]= txt;
+    } document.getElementById("mang").value = a;
+    } 
+    function kiemTra() {
+    let V = parseInt(prompt("Kiểm tra phần tử: "));
+    let dem = 0;
+    for (j=0; j<a.length; j++) {
+    if (a[j]===V) {
+       /* for (;j<a.length-1;j++) {
+            a[j] = a[j+1];
+            a[a.length -1] = 0;
+        } document.getElementById("mang").value = a;
+        break; */
+
+       a[j] = a[j+1];     
+    }
+    a[a.length -1] = 0;
+
+    document.getElementById("check").value = a;
+
+     dem = dem + 1;
+    if (dem === a.length) {
+        document.getElementById("check").value = ( V + " không nằm trong mảng."); 
+    }
+    }
+
+    }
+    </script>
+</body>
+</html>

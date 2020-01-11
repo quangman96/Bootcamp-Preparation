@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<!-- <input type="button" value="Nhập khoảng" id ="num" onclick="inputNum()">
+<input type="button" value="kiemTra" id ="snt" onclick="display()"> -->
+<input type="text" id="num" onkeydown="input()">
+	<input type="button" value="oke" onclick="main(this.value)">	
+<body>
+
+    <script>
+//     function inputNum (){
+//         let num = parseInt(prompt("Enter number: "));
+//         return num;
+//     }
+//     function isPrime (n){
+//         for (let i =2; i< (n-1); i++){
+//             if (n%i===0){
+//                 return false;
+//             }
+//         }       return n>;
+//     }
+//     function display() {
+// 	inputNum();
+// 	document.write(isPrime(num)) ;
+// }
+function isPrime(n) {
+	for (var i = 2 ; i < n ; i++) {
+		if((n % i) === 0){
+			return false;
+		}
+	}    
+	return n > 1;
+}
+function input() {
+	let num = document.getElementById("num").value;
+	return num;
+}
+function main() {
+	let num = input();
+document.write(isPrime(num)) ;
+}
+    </script>
+</body>
+</html>

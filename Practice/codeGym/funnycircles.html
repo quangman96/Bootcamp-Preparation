@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Funny Circle </title>
+</head>
+<body>
+    <canvas id="myCanvas" width="1900px" height="928px" style="border:1px solid #ee0202;">
+    <script>
+    // // xây dựng đối tượng hình tròn với 3 thuộc tính
+    // function circle(x,y,radius) {
+    //     this.x = x;
+    //     this.y = y;
+    //     this.radius = radius;
+    // }
+    // function creatCircle() {
+    //     let ctx = document.getElementById("myCanvas").getContext("2d");
+    //     let man = new circle(500,500,80);
+    //     ctx.beginPath();
+    //     ctx.arc(man.x,man.y,man.radius,0,2*Math.PI);
+    //     ctx.fill();
+    // }
+    // creatCircle();
+
+    
+    // // xây dựng đối tượng hình tròn với với bán kính ngẫu nhiên
+    // function circle(x,y,radius) {
+    //     this.x = x;
+    //     this.y = y;
+    //     this.radius = radius;    
+    // } 
+    // function creatCircle() {
+    //     let ctx = document.getElementById("myCanvas").getContext("2d");
+    //     let radius = Math.floor(Math.random()*80);
+    //     let Circle= new circle(500,500,radius);
+    //     ctx.beginPath();
+    //     ctx.arc(Circle.x,Circle.y,Circle.radius,0,2*Math.PI);
+    //     ctx.fill();
+    // }
+    // creatCircle();
+
+    // // xây dựng hình tròn với màu ngẫu nhiên
+    // function circle(x,y,radius) {
+    //      this.x = x;
+    //      this.y = y;
+    //      this.radius = radius;
+    // }
+    // function getRandomHex() {
+    //     return Math.floor(Math.random()*255);
+    // }
+    // function getRandomColor() {
+    //     let red = getRandomHex();
+    //     let green = getRandomHex();
+    //     let blue = getRandomHex();
+	//  return "rgb(" + red + "," + blue + "," + green +")";
+    // }   
+    // function creatCircle() {
+    //     let ctx = document.getElementById("myCanvas").getContext("2d");
+    //     let radius = Math.floor(Math.random()*80);
+    //     let color = getRandomColor();
+    //     console.log(color);
+    //     let tron = new circle(500,500,radius);
+    //     ctx.beginPath();
+    //     ctx.arc(tron.x,tron.y,tron.radius,0,2*Math.PI);
+    //     ctx.fillStyle = color;
+    //     ctx.fill();
+    // }
+    // creatCircle();
+
+    // xây dựng hình tròn với vị trí ngẫu nhiên
+    function circle(x,y,radius) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+    }
+    function getRandomHex() {
+        return Math.floor(Math.random()*255);
+    }
+    function getRandomColor() {
+        let red = getRandomHex();
+        let green = getRandomHex();
+        let blue = getRandomHex();
+        return "rgb(" + red + "," + blue + "," + green +")";    
+    }
+    function creatCircle() {
+        let ctx = document.getElementById("myCanvas").getContext("2d");
+        let radius = Math.floor(Math.random()*80);
+        let color = getRandomColor();
+        let x = Math.random() * window.innerWidth;
+        let y = Math.random() * window.innerHeight;
+        let tron = new circle(x,y,radius);
+        ctx.beginPath();
+        ctx.arc(tron.x,tron.y,tron.radius,0,2*Math.PI);
+        ctx.fillStyle = color;
+        ctx.fill();
+
+    }
+    // creatCircle();
+    // creatCircle();
+    function nhieuTron(){
+        for (let i=0; i<200;i++){
+            creatCircle();
+        }
+    }
+    nhieuTron();
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+canvas{
+    border: 10px solid #000000;
+    background-image:url("bg.png");
+    background-repeat: repeat-x;
+    background-size: auto;
+}
+
+body{
+    background-image:url("ok.jpg");
+    /* background-repeat: repeat-x; */
+    background-size: auto;
+    text-align: center;
+    margin-top: 100px;
+}
+
+button {
+    background: #3498db;
+    font-size:40px;
+    width: 400px;
+    height:200px;
+    padding: 4px 0;
+    position: absolute;
+    left: 50%; /*13,9*/
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    border-radius: 3px;
+  
+}
+    

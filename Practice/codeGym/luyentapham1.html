@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="messenger()">Input</button>
+    <button onclick="doiso()">Đối số</button>
+
+    <script>
+    function messenger(){
+        alert("xin chao`");
+    }
+    function doiso(n){
+        let a = parseInt(prompt("Nhập a: "));
+        a++;
+        document.write(a);
+    }
+    function check(a,b){
+        if(a>b){
+            alert(a+" lớn hơn "+b);
+        } else {
+            return a+b;
+        }
+    }
+    function addNumbers() {
+    firstNum = 4;
+    secondNum = 8;
+    result = firstNum + secondNum;
+    return result;
+}
+result = 0; //trước
+result = addNumbers(); //sau
+ 
+    </script>
+</body>
+</html>

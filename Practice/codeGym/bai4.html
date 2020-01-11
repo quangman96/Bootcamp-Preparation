@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hình tròn và Canvas</title>
+</head>
+
+<body>
+    <style>
+        canvas {
+            border: 5px solid teal;
+            background-color: antiquewhite;
+        }
+    </style>
+    <canvas id="myCanvas" width="1200" height="500"></canvas>
+    <script>
+
+        class Cricle {
+            constructor(x, y, radius, color, height) {
+                this.x = x;
+                this.y = y;
+                this.radius = radius;
+                this.color = color;
+                this.height = height;
+            }
+            render() {
+                let ctx = document.getElementById("myCanvas").getContext("2d");
+                ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+        }
+
+        let cricle = new Cricle(40, 50, 30, "#FF3300");
+        cricle.render();
+
+    </script>
+</body>
+
+</html>

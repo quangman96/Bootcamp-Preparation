@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function processConfirm(answer){
+        let relust = "";
+        if (answer) {
+            relust = "nice";
+        } else {
+            relust = "later";
+        }
+        return relust;
+    }    
+
+    let confirmAnswer = confirm("Shall we play a games?");
+    let theAnswer = processConfirm(confirmAnswer);
+    alert(theAnswer);
+    </script>
+</body>
+</html>

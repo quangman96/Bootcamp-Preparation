@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Số nguyên tố</title>
+</head>
+<body>
+    <script>
+    // Đưa vào giá trị n là độ dài của mảng arr
+    function inputNumber(){
+        let n = 0;
+        do{
+            n = parseInt(prompt("Enter array length: "));   
+        }
+        while(!checkInput(n))
+        return n;
+    }
+    // Kiểm tra xem n nhập vào có đúng như mong muốn không
+    function checkInput(n) {
+        if(n<0) return false;
+        return !Number.isNaN(n);
+        return true;
+    }
+    // Tạo một mảng với độ dài n đã nhập và các phần tử ngẫu nhiên
+    function creatArray(n){
+        let array = new Array(n);
+        for (let i=0; i< n; i++) {
+        array[i] = Math.floor(Math.random()*100 +1);
+    }   
+        return array;
+    }
+    // Hiển thị mảng arr với độ dài mảng là n
+    function showArray(arr,n){
+        for(let i=0; i<n; i++){
+            document.write(arr[i]+ ", ");
+        }
+    }
+    //Tính giá trị lớn nhất của mảng
+    function maxArray(arr,n) {
+        let max = arr[0];
+        let index = 0; 
+        for (let i=0; i<n; i++){
+            if (arr[i]>max){
+                max = arr[i];
+                index = i;
+            }
+        }
+        document.write("Giá trị lớn nhất của mảng là: "+ max +
+                       ", nằm ở vị trí: " + index + "<br>" );    
+                    // return max;
+    }
+    //Tính giá trị nhỏ nhất của mảng
+    function minArray(arr,n) {
+        let min = arr[0];
+        let index = 0; 
+        for (let i=0; i<n; i++){
+            if (arr[i]<min){
+                min = arr[i];
+                index = i;
+            }
+        }
+        document.write("Giá trị nhỏ nhất của mảng là: "+ min +
+                       ", nằm ở vị trí: " + index);   
+    }
+    // Hàm kiểm tra số nhận vào có phải là số nguyên tố không
+    function isPrime(n){
+                if(n<2){
+                return false;
+            } else if(n===2) {
+                return true;
+            } else if(n%2===0) {
+                return false;  
+            } else {
+                for (var i = 3; i < n-1 ; i+=2) {
+                    if (n%i===0) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+    // Đếm số lượng số nguyên tố    
+    function countPrimes(arr,n) {
+        let count =0;
+        for (let i=0 ;i<n; i++) {
+            if(isPrime(arr[i]))
+            count+=1;
+        }
+        return count;
+    }
+    // Hiển thị các số nguyên tố trong mảng vừa tạo
+    function showPrimes(arr,n) {
+        let prime = [];
+        for (let i=0; i<n; i++) {
+            if(isPrime(arr[i]))
+            prime.push(arr[i]);
+        }
+        return prime;
+    }
+    //Hàm liên kết và xử lý đầu ra
+    function main(){
+        let n = inputNumber();
+        let arr = creatArray(n);
+        document.write("Ta có mảng ngẫu nhiên với độ dài " + n +
+                      " là: " + arr + "<br>" + "Trong đó có " + countPrimes(arr,n) +
+                       " số nguyên tố "+ showPrimes(arr,n) + "<br>");
+       maxArray(arr,n);
+       minArray(arr,n);
+    }
+    //Gọi hàm để khởi động
+    main();
+    </script>
+</body>
+</html>

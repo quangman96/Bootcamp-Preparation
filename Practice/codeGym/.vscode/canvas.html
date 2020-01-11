@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+    canvas{
+        border: 5px solid teal;
+        background-color: antiquewhite;
+    }    
+    body{
+       text-align: center;
+    }
+    </style>
+    <img style="display:none" src="khunglong.png" id="imgCanvas"/>
+    <canvas id="myCanvas" width="1200" height="500"></canvas>
+    
+    <script>
+        class Animal {
+            constructor(image,name,x,y,width,height) {
+                this.image = image;
+                this.name = name;
+                this.x = x;
+                this.y = y;
+                this.width = width;
+                this.height = height;
+            }
+            display(canvas){
+                canvas.drawImage(this.image,this.x,this.y,this.width,this.height);
+            }
+        }
+            let dinosaurs = new Image();
+            dinosaurs.src = document.getElementById("imgCanvas").src;
+            let ctx = document.getElementById("myCanvas");
+            let canvas = ctx.getContext("2d");
+        
+        window.onload = function() {
+            let khunglong = new Animal(dinosaurs,"PiPi",300,0,500,500);
+            khunglong.display(canvas);
+        }
+    </script>
+    
+</body>
+</html>

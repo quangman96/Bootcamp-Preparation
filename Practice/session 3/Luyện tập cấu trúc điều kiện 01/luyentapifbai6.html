@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Luyen tap if 6</title>
+</head>
+<body>
+    <script>
+    let doanhThu = parseFloat(prompt("Nhập doanh thu: "));
+    if (doanhThu>10000000) {
+        let hoaHong = doanhThu/100*15;
+        alert ("Hoa hồng nhận được 15% là: " +hoaHong);
+    } else if (doanhThu>5000000) {
+        let hoaHong = doanhThu/100*10;
+        alert ("Hoa hồng nhận được 10% là: " +hoaHong);
+    } else {
+        let hoaHong = doanhThu/100*5;
+        alert ("Hoa hồng nhận được 5% là: " +hoaHong)
+    }
+    </script>
+</body>
+</html>

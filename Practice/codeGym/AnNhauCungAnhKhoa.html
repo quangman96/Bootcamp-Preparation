@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ăn nhậu cùng anh Khoa </title>
+</head>
+<body>
+    <script>
+    function Food(name,amount){
+        this.name = name;
+        this.amount = amount;
+        this.info = function() {
+            console.log(this.name + " " + this.amount);
+        }
+        this.giam = function () {
+            if (amount>0) {
+               this.amount --;
+            } else {
+                document.write("hết dĩa");
+            }
+        }
+    }
+
+    function Drink(name,amount) {
+        this.name = name;
+        this.amount = amount;
+        this.info = function() {
+            console.log(this.name + " " + this.amount);
+        }
+        this.giam = function () {
+            if (amount>0) {
+                this.amount --;
+            } else {
+                document.write("hết lon");
+            }
+        }
+    }
+    
+    function DanNhau(name) {
+        this.name = name;
+        
+            this.eat = function(Food){
+                console.log(Food);
+                Food.giam();
+            }   
+        
+    }
+            this.drink = function(Drink){
+                console.log(Drink);
+                Drink.giam();
+            }   
+        
+                 
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let a = [];
+    a.length = parseInt(prompt("Nhập số phần tử có trong mảng: "));
+    let txt;
+    let dem=0;
+    for(let i=0; i<a.length; i++) {
+        txt = parseInt(prompt("Nhập " +a.length + " phần tử của mảng: "));
+        a[i] = txt;
+    } document.write("Mảng bạn vừa tạo là: " + a + "<br>" );
+    let max = a[0];
+    let index = 0;
+    for (let j=0; j<a.length; j++) {
+        if (a[j]> max) {
+            max = a[j];
+            index = j;
+        }
+    } document.write("Phần tử lớn nhất của mảng là:" + max + ", nằm ở vị trí: " +index);
+    </script>
+</body>
+</html>

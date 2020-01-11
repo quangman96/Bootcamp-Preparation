@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            table, th, td {
+              border: 0.1px solid rgb(0, 0, 0);
+            }
+            table{
+                height: 500px;
+                width: 1000px;
+            }
+          </style>
+</head>
+<body onload="display()">
+    <h2>Adam và Eva</h2>
+    <table>
+    <tr>
+        <th>NAME</th>
+        <th id="adam"></th>
+        <th id="eva"></th>
+    </tr>
+    <tr>
+        <th>Gender</th>
+        <th id="gtAdam"></th>
+        <th id="gtEva"></th>
+    </tr>
+    <tr>
+        <th>Weight</th>
+        <th id="wAdam"></th>
+        <th id="wEva"></th> 
+    </tr>
+    <tr>
+        <th>Say</th>
+        <th><input type="text" id="sayAdam" style="width: 99%; height: 100%"></th>
+        <th><input type="text" id="sayEva" style="width: 99%; height: 100%"></th>
+    </tr>
+    <tr>
+        <th>Option </th>
+        <th><input type="button" value="Say" onclick="adam.say()" style="width: 50%; height: 50%">
+        <input type="button" value="Eat" onclick="adam.eat(apple)"style="width: 50%; height: 50%"></th>
+        <th><input type="button" value="Say" onclick="eva.say()" style="width: 50%; height: 50%">
+        <input type="button" value="Eat" onclick="eva.eat(apple)" style="width: 50%; height: 50%"></th>
+    </tr>
+        <tr>
+            <th>Mess</th>
+            <th><span id="messAdam"></span></th>
+            <th><span id="messEva"></span></th>
+        </tr>
+        <tr>
+            <th>Apple Weight</th>
+            <th id="AppleWeight"></th>
+        </tr>
+    </table>
+    <script>
+    function Human(name,gender,weight) {
+        this.name = name;
+        this.gender = gender;
+        this.weight = weight;
+        this.mess = "";
+        this.getName = function(){
+            return this.name;
+        }
+        this.getGender = function(){
+            return this.gender;
+        }
+        this.getWeight = function(){
+            return this.weight;
+        }
+        this.eat = function(apple){
+            if (apple.weight>0)
+            this.weight++;
+            apple.decrease();
+            display();
+        }
+        this.say = function(){
+            this.mess += this.name + " Say: " + document.getElementById("say"+ this.name).value + "<br>";
+            document.getElementById("mess"+this.name).innerHTML = this.mess;
+        }
+    };
+
+    function Apple(weight){
+        this.weight = weight;
+        this.getWeight = function(){
+            return this.weight;
+        }
+        this.decrease = function(){
+            if(this.weight>0){
+                this.weight--;
+            }else{
+                alert("Out of Apple");
+            }
+        }
+    };
+    
+    let adam = new Human("Adam","male",70);
+    let eva = new Human("Eva","female",55);
+    let apple = new Apple(20);
+
+    function display(){
+        document.getElementById("adam").innerHTML = adam.getName();
+        document.getElementById("eva").innerHTML = eva.getName();
+        document.getElementById("gtAdam").innerHTML = adam.getGender();
+        document.getElementById("gtEva").innerHTML = eva.getGender();
+        document.getElementById("wAdam").innerHTML = adam.getWeight();
+        document.getElementById("wEva").innerHTML = eva.getWeight();
+        document.getElementById("AppleWeight").innerHTML = apple.getWeight();
+    }
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="Sắp xếp lại" onclick="sapXep()">
+    <script>
+    let a = [];
+    let dem;
+    a.length = parseInt(prompt("Nhập số phần tử của mảng: "));
+    for(let i=0; i<a.length; i++) {
+        dem = parseInt(prompt("Nhập vào " + a.length + " phần tử của mảng: "));
+        a[i]= dem;
+    } document.write("Mảng bạn vừa tạo là: " + a + "<br>" );
+    function sapXep() {
+    a.sort(function(a,b) {return b -a});
+    document.write (a);
+    }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function temperature (doC,doF,doK) {
+            this.doC = doC;
+            this.doK = doK;
+            this.doF = doF;
+            this.getdoC =function(){
+                return this.doC;
+            }
+            this.changeCF = function (doF) {
+                this.doF = (doC*9)/5 +32;
+            this.changeCK = function (doK) {
+                this.doK = doC + 273.15;
+            }
+            }
+        }
+        function display () {
+            let ndo = new temperature(25,0,0);
+            ndo.getdoC();
+            ndo.changeCF();
+            ndo.changeCK();
+            document.write("Nếu độ C là: "+ ndo.doC +" thì độ F là: "+ ndo.doF + " và độ K là: " + ndo.doK);
+        }
+        display();
+    </script>
+</body>
+</html>
